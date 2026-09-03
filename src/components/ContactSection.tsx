@@ -16,6 +16,7 @@ import {
   Wrench,
   Cpu,
   GraduationCap,
+  Loader2,
 } from 'lucide-react';
 import { BRAND_INFO } from '../data/simporaData';
 import { useLanguage } from '../context/LanguageContext';
@@ -24,6 +25,8 @@ import { CustomDropdown, DropdownOption } from './CustomDropdown';
 interface ContactSectionProps {
   initialMessage?: string;
 }
+
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xppakyed';
 
 export const ContactSection: React.FC<ContactSectionProps> = ({ initialMessage = '' }) => {
   const { t, language } = useLanguage();
@@ -36,6 +39,8 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialMessage =
     message: initialMessage,
   });
 
+  const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [submitted, setSubmitted] = useState(false);
   const [copiedEmail, setCopiedEmail] = useState(false);
 
@@ -53,12 +58,53 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialMessage =
     }
   }, [initialMessage]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
 
-    // Simulate submission
-    setSubmitted(true);
+    setLoading(true);
+    setErrorMsg(null);
+
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone || (language === 'en' ? 'Not specified' : 'No especificado'),
+          service: formData.service,
+          message: formData.message,
+          _subject: `Nuevo contacto web SIMPORA: ${formData.name} (${formData.service})`,
+        }),
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          service: t.contact.servicesList[0].value,
+          message: '',
+        });
+      } else {
+        const data = await response.json();
+        throw new Error(data?.error || 'Error al enviar');
+      }
+    } catch (err: any) {
+      console.error('Formspree submission error:', err);
+      setErrorMsg(
+        language === 'en'
+          ? 'Failed to send message. Please try again or reach us via WhatsApp.'
+          : 'No se pudo enviar el mensaje. Por favor intenta de nuevo o escríbenos por WhatsApp.'
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleCopyEmail = () => {
@@ -285,6 +331,12 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialMessage =
                 />
               </div>
 
+              {errorMsg && (
+                <div className="p-3.5 rounded-xl bg-red-500/10 border border-red-500/30 text-red-600 text-xs font-mono text-center">
+                  {errorMsg}
+                </div>
+              )}
+
               <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
                 <span className="text-xs font-mono text-zinc-400">
                   {t.contact.confidentialBadge} • {t.contact.slaBadge}
@@ -292,10 +344,20 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialMessage =
 
                 <button
                   type="submit"
-                  className="w-full sm:w-auto px-9 py-3.5 rounded-full bg-[#97F2CC] hover:bg-[#80e2b7] text-[#18181B] font-bold text-xs tracking-tight transition-all duration-300 shadow-[0_4px_16px_rgba(151,242,204,0.35)] hover:shadow-[0_6px_24px_rgba(151,242,204,0.55)] hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center space-x-2.5 group cursor-pointer"
+                  disabled={loading}
+                  className="w-full sm:w-auto px-9 py-3.5 rounded-full bg-[#97F2CC] hover:bg-[#80e2b7] text-[#18181B] font-bold text-xs tracking-tight transition-all duration-300 shadow-[0_4px_16px_rgba(151,242,204,0.35)] hover:shadow-[0_6px_24px_rgba(151,242,204,0.55)] hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center space-x-2.5 group cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  <span>{t.contact.submitBtn}</span>
-                  <Send className="w-3.5 h-3.5 text-[#18181B] group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform" />
+                  {loading ? (
+                    <>
+                      <Loader2 className="w-4 h-4 animate-spin text-[#18181B]" />
+                      <span>{language === 'en' ? 'Sending...' : 'Enviando...'}</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>{t.contact.submitBtn}</span>
+                      <Send className="w-3.5 h-3.5 text-[#18181B] group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform" />
+                    </>
+                  )}
                 </button>
               </div>
             </form>

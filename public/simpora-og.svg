@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#0a0a0c" />
+      <stop offset="50%" stopColor="#121215" />
+      <stop offset="100%" stopColor="#08080a" />
+    </linearGradient>
+    <radialGradient id="mintGlow" cx="50%" cy="40%" r="55%">
+      <stop offset="0%" stopColor="rgba(151,242,204,0.22)" />
+      <stop offset="50%" stopColor="rgba(151,242,204,0.06)" />
+      <stop offset="100%" stopColor="transparent" />
+    </radialGradient>
+    <pattern id="dotGrid" x="0" y="0" width="32" height="32" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.2" fill="rgba(255,255,255,0.07)" />
+    </pattern>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="1200" height="630" fill="url(#bgGrad)" />
+  <rect width="1200" height="630" fill="url(#dotGrid)" />
+  <rect width="1200" height="630" fill="url(#mintGlow)" />
+
+  <!-- Outer Cyber Border -->
+  <rect x="24" y="24" width="1152" height="582" rx="20" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1.5" />
+  <rect x="24" y="24" width="80" height="2" fill="#97F2CC" />
+  <rect x="1096" y="604" width="80" height="2" fill="#97F2CC" />
+
+  <!-- Top Badge -->
+  <g transform="translate(600, 150)">
+    <rect x="-140" y="-18" width="280" height="36" rx="18" fill="rgba(151,242,204,0.12)" stroke="rgba(151,242,204,0.3)" stroke-width="1" />
+    <circle cx="-112" cy="0" r="4" fill="#97F2CC" />
+    <text x="-96" y="5" font-family="'Courier New', Courier, monospace" font-size="12" font-weight="bold" fill="#97F2CC" letter-spacing="2">NEXT-GEN SOFTWARE &amp; AI</text>
+  </g>
+
+  <!-- Brand Title -->
+  <g transform="translate(600, 260)">
+    <text text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="88" fill="#FFFFFF" letter-spacing="-2">
+      SIMPORA
+    </text>
+    <circle cx="240" cy="-45" r="9" fill="#97F2CC" />
+  </g>
+
+  <!-- Subtitle Tagline -->
+  <g transform="translate(600, 340)">
+    <text text-anchor="middle" font-family="'Courier New', Courier, monospace" font-weight="bold" font-size="22" fill="#97F2CC" letter-spacing="8">
+      SIMPLE • POWERFUL • ADVANCED
+    </text>
+  </g>
+
+  <!-- Mission Statement -->
+  <g transform="translate(600, 410)">
+    <text text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="20" fill="#a1a1aa" font-weight="400">
+      Haremos que la tecnología trabaje para ti • Soluciones de Software e Inteligencia Artificial
+    </text>
+  </g>
+
+  <!-- 3 Pillars Chips at bottom -->
+  <g transform="translate(600, 490)">
+    <!-- Chip 1 -->
+    <g transform="translate(-240, 0)">
+      <rect x="-100" y="-18" width="200" height="36" rx="12" fill="#18181b" stroke="rgba(255,255,255,0.1)" stroke-width="1" />
+      <text text-anchor="middle" y="5" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#FFFFFF">100% Custom Code</text>
+    </g>
+    <!-- Chip 2 -->
+    <g transform="translate(0, 0)">
+      <rect x="-100" y="-18" width="200" height="36" rx="12" fill="#18181b" stroke="rgba(151,242,204,0.4)" stroke-width="1" />
+      <text text-anchor="middle" y="5" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#97F2CC">Applied AI Studio</text>
+    </g>
+    <!-- Chip 3 -->
+    <g transform="translate(240, 0)">
+      <rect x="-100" y="-18" width="200" height="36" rx="12" fill="#18181b" stroke="rgba(255,255,255,0.1)" stroke-width="1" />
+      <text text-anchor="middle" y="5" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#FFFFFF">&lt; 24h Direct SLA</text>
+    </g>
+  </g>
+
+  <!-- Bottom URL -->
+  <text x="600" y="565" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="14" fill="#71717a" letter-spacing="3">
+    SIMPORA.DEV
+  </text>
+</svg>

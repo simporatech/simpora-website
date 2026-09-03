@@ -1,0 +1,6 @@
+{
+  "name": "SIMPORA",
+  "description": "Landing page oficial de SIMPORA (simpora.dev). Consultoría en ingeniería de sistemas, inteligencia artificial aplicada, desarrollo de software y transformación digital.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

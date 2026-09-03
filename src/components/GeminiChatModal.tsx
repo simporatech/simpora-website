@@ -104,22 +104,69 @@ export const GeminiChatModal: React.FC<GeminiChatModalProps> = ({
     setIsLoading(true);
 
     try {
-      const response = await fetch('/api/gemini/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          message: text,
-          messages: newHistory.map((m) => ({ role: m.role, content: m.content })),
-          lang: language,
-        }),
-      });
+      let modelText = '';
 
-      const data = await response.json();
-      const modelText =
-        data.text ||
-        (language === 'en'
-          ? 'I have received your inquiry. I recommend connecting directly with our founder Jonathan Dubón via simporatech@gmail.com.'
-          : 'He recibido tu mensaje. Te sugiero conectar directamente con nuestro fundador Jonathan Dubón vía simporatech@gmail.com.');
+      // 1. Primary: Try Vercel Serverless Function or local server
+      try {
+        const response = await fetch('/api/gemini/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            message: text,
+            messages: newHistory.map((m) => ({ role: m.role, content: m.content })),
+            lang: language,
+          }),
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          if (data.text) {
+            modelText = data.text;
+          }
+        }
+      } catch (e) {
+        // Continue to secondary fallback
+      }
+
+      // 2. Secondary: Direct Gemini API fallback using client-side VITE_GEMINI_API_KEY
+      const clientApiKey = (import.meta as any).env?.VITE_GEMINI_API_KEY;
+      if (!modelText && clientApiKey) {
+        try {
+          const directRes = await fetch(
+            `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${clientApiKey}`,
+            {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                contents: [{ role: 'user', parts: [{ text }] }],
+                systemInstruction: {
+                  parts: [
+                    {
+                      text:
+                        language === 'en'
+                          ? 'You are the Senior AI Solutions Consultant at SIMPORA (simpora.dev) led by Jonathan A. Dubón. Provide articulate, concise, high-caliber advice on custom software and applied AI solutions.'
+                          : 'Eres el Consultor Senior de Soluciones de SIMPORA (simpora.dev) liderado por Jonathan A. Dubón. Proporciona asesoramiento de alto calibre en software a medida e inteligencia artificial.',
+                    },
+                  ],
+                },
+              }),
+            }
+          );
+          if (directRes.ok) {
+            const directData = await directRes.json();
+            modelText = directData?.candidates?.[0]?.content?.parts?.[0]?.text || '';
+          }
+        } catch (e) {
+          // Continue to tertiary fallback
+        }
+      }
+
+      if (!modelText) {
+        modelText =
+          language === 'en'
+            ? 'Thank you for reaching out to SIMPORA. We combine high-level systems engineering with applied AI.\n\nYou can reach our lead engineer Jonathan A. Dubón directly at **info@simpora.dev** or on WhatsApp at **+504 9877-4561**.'
+            : 'Gracias por contactar a SIMPORA. Combinamos ingeniería de sistemas de alto nivel con inteligencia artificial aplicada.\n\nPuedes escribirnos directamente a **info@simpora.dev** o por WhatsApp al **+504 9877-4561** para una respuesta en menos de 24 horas.';
+      }
 
       const modelMsg: ChatMessage = {
         id: `model-${Date.now()}`,
@@ -136,8 +183,8 @@ export const GeminiChatModal: React.FC<GeminiChatModalProps> = ({
         role: 'model',
         content:
           language === 'en'
-            ? `Thank you for reaching out to SIMPORA. Across our 6 pillars we combine high-level systems engineering precision with applied AI.\n\nYou can reach us directly at **simporatech@gmail.com** or on WhatsApp at **+504 9870-0953** for an engineering response in under 24 hours.`
-            : `Gracias por contactar a SIMPORA. En nuestros 6 pilares combinamos precisión de ingeniería en sistemas con inteligencia artificial aplicada.\n\nPuedes escribirnos directamente a **simporatech@gmail.com** o por WhatsApp al **+504 9870-0953** para una respuesta en menos de 24 horas.`,
+            ? 'Thank you for reaching out to SIMPORA. We combine high-level systems engineering with applied AI.\n\nYou can reach us directly at **info@simpora.dev** or on WhatsApp at **+504 9877-4561**.'
+            : 'Gracias por contactar a SIMPORA. Combinamos ingeniería de sistemas de alto nivel con inteligencia artificial aplicada.\n\nPuedes escribirnos directamente a **info@simpora.dev** o por WhatsApp al **+504 9877-4561**.',
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
       };
       setMessages((prev) => [...prev, fallbackMsg]);

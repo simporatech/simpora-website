@@ -104,10 +104,9 @@ export const AboutSection: React.FC = () => {
                   <div className="w-18 h-18 sm:w-22 sm:h-22 rounded-full p-[2px] bg-gradient-to-br from-[#97F2CC] via-[#97F2CC]/60 to-transparent shadow-[0_0_16px_rgba(151,242,204,0.25)]">
                     <div className="w-full h-full rounded-full overflow-hidden border border-[#97F2CC]/50 bg-zinc-900 relative">
                       <img
-                        src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=300"
+                        src="/assets/jonathan-dubon.jpg"
                         alt={BRAND_INFO.founder}
-                        referrerPolicy="no-referrer"
-                        className="w-full h-full object-cover object-center grayscale contrast-110 hover:grayscale-0 transition-all duration-300"
+                        className="w-full h-full object-cover object-top transition-all duration-300 hover:scale-105"
                         onError={(e) => {
                           (e.target as HTMLElement).style.display = 'none';
                         }}

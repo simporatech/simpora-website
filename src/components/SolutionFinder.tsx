@@ -88,27 +88,75 @@ export const SolutionFinder: React.FC<SolutionFinderProps> = ({
     setErrorMsg(null);
 
     try {
-      const res = await fetch('/api/gemini/diagnose', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          problemText: textToSend,
-          industry,
-          priority: 'Alta',
-          lang: language,
-        }),
-      });
+      let resolvedDiagnosis = null;
 
-      const data = await res.json();
-      if (data.diagnosis) {
-        setDiagnosis(data.diagnosis);
-      } else if (data.fallback) {
-        setDiagnosis(data.fallback);
+      // 1. Primary: Try Vercel Serverless Function or local server
+      try {
+        const res = await fetch('/api/gemini/diagnose', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            problemText: textToSend,
+            industry,
+            priority: 'Alta',
+            lang: language,
+          }),
+        });
+
+        if (res.ok) {
+          const data = await res.json();
+          if (data.diagnosis) {
+            resolvedDiagnosis = data.diagnosis;
+          }
+        }
+      } catch (e) {
+        // Continue to secondary fallback
+      }
+
+      // 2. Secondary: Direct Gemini API fallback using client-side VITE_GEMINI_API_KEY
+      const clientApiKey = (import.meta as any).env?.VITE_GEMINI_API_KEY;
+      if (!resolvedDiagnosis && clientApiKey) {
+        try {
+          const directPrompt =
+            language === 'en'
+              ? `Analyze this business need for SIMPORA: "${textToSend}" in industry "${industry || 'General'}". Reply strictly in JSON: {"recommendedPillar": "One of SIMPORA's 6 pillars", "summary": "2-3 sentences", "timeEstimate": "e.g. 2 to 3 weeks", "roiProjection": "e.g. 300% ROI", "technologies": ["Tech 1", "Tech 2"], "actionPlan": ["Step 1", "Step 2", "Step 3", "Step 4"], "leadEngineer": "Jonathan A. Dubón (Systems Engineer)"}`
+              : `Analiza esta necesidad para SIMPORA: "${textToSend}" en industria "${industry || 'General'}". Responde estrictamente en JSON: {"recommendedPillar": "Uno de los 6 pilares de SIMPORA", "summary": "2-3 oraciones", "timeEstimate": "ej. 2 a 3 semanas", "roiProjection": "ej. 300% ROI", "technologies": ["Tec 1", "Tec 2"], "actionPlan": ["Paso 1", "Paso 2", "Paso 3", "Paso 4"], "leadEngineer": "Jonathan A. Dubón (Ing. en Sistemas)"}`;
+
+          const directRes = await fetch(
+            `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${clientApiKey}`,
+            {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                contents: [{ role: 'user', parts: [{ text: directPrompt }] }],
+                generationConfig: {
+                  temperature: 0.3,
+                  responseMimeType: 'application/json',
+                },
+              }),
+            }
+          );
+
+          if (directRes.ok) {
+            const directData = await directRes.json();
+            const text = directData?.candidates?.[0]?.content?.parts?.[0]?.text;
+            if (text) {
+              const cleaned = text.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();
+              resolvedDiagnosis = JSON.parse(cleaned);
+            }
+          }
+        } catch (e) {
+          // Continue to tertiary fallback
+        }
+      }
+
+      if (resolvedDiagnosis) {
+        setDiagnosis(resolvedDiagnosis);
       } else {
-        throw new Error('Formato no reconocido');
+        throw new Error('Fallback to default');
       }
     } catch (err) {
-      console.warn('Diagnose fetch failed, applying graceful client fallback:', err);
+      console.warn('Diagnose fetch fallback activated:', err);
       // Client-side fallback if network or dev environment hiccup
       setDiagnosis({
         recommendedPillar:

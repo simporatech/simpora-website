@@ -232,7 +232,7 @@ export const SolutionFinder: React.FC<SolutionFinderProps> = ({
   return (
     <section
       id="solution-finder"
-      className="h-screen min-h-[100dvh] max-h-[100dvh] pt-20 sm:pt-24 pb-3 sm:pb-5 px-3 sm:px-6 md:px-12 w-full flex flex-col justify-between bg-white text-[#121212] relative z-10 overflow-hidden scroll-mt-20 lg:scroll-mt-24"
+      className="section-standard-screen w-full flex flex-col justify-between bg-white text-[#121212] relative z-10 px-3 sm:px-6 md:px-12 py-3 sm:py-4 overflow-hidden scroll-mt-20"
     >
       <div className="max-w-4xl mx-auto w-full h-full flex flex-col">
         {/* Section Header with 100% Crisp Contrast */}

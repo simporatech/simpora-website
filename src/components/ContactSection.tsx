@@ -136,28 +136,28 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialMessage =
   }));
 
   return (
-    <section id="contacto" className="min-h-screen min-h-[calc(100dvh-5rem)] flex flex-col justify-center pt-24 pb-14 lg:pt-28 lg:pb-16 bg-white/85 relative z-10 scroll-mt-20 lg:scroll-mt-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 w-full">
+    <section id="contacto" className="section-standard-screen flex flex-col justify-center py-4 sm:py-6 lg:py-6 bg-white/85 relative z-10 scroll-mt-20 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 w-full my-auto">
         {/* Section Header with Motto */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
-          <div className="inline-flex items-center space-x-2 text-xs font-mono font-semibold tracking-wider text-zinc-500 uppercase mb-3">
+        <div className="text-center max-w-3xl mx-auto mb-3 sm:mb-4">
+          <div className="inline-flex items-center space-x-2 text-xs font-mono font-semibold tracking-wider text-zinc-500 uppercase mb-1.5">
             <span className="w-1.5 h-1.5 rounded-full bg-[#97F2CC]" />
             <span>{t.contact.badge}</span>
           </div>
-          <h2 className="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-[#121212] tracking-tight">
+          <h2 className="font-display font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#121212] tracking-tight">
             {t.contact.heading}
           </h2>
-          <p className="mt-3 font-body text-sm sm:text-lg text-[#121212] opacity-70">
+          <p className="mt-1 font-body text-xs sm:text-sm text-[#121212] opacity-70">
             {t.contact.description}
           </p>
         </div>
 
         {/* Contact Info Pill Bar (Clean Minimalism) */}
-        <div className="max-w-4xl mx-auto mb-8 sm:mb-12 p-4 sm:p-6 rounded-2xl bg-[#F5F7F8] border border-black/[0.04] shadow-xs flex flex-col sm:flex-row items-center justify-around gap-4 text-center sm:text-left">
+        <div className="max-w-4xl mx-auto mb-3 sm:mb-4 p-2.5 sm:p-3.5 rounded-2xl bg-[#F5F7F8] border border-black/[0.04] shadow-xs flex flex-col sm:flex-row items-center justify-around gap-3 text-center sm:text-left">
           {/* Email */}
           <div className="flex items-center space-x-3 group">
-            <div className="w-9 h-9 rounded-xl bg-white border border-black/5 flex items-center justify-center text-[#121212] group-hover:bg-[#97F2CC]/30 transition-colors">
-              <Mail className="w-4 h-4" />
+            <div className="w-8 h-8 rounded-lg bg-white border border-black/5 flex items-center justify-center text-[#121212] group-hover:bg-[#97F2CC]/30 transition-colors">
+              <Mail className="w-3.5 h-3.5" />
             </div>
             <div>
               <div className="text-[10px] font-mono text-zinc-400 uppercase">
@@ -178,12 +178,12 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialMessage =
             </div>
           </div>
 
-          <div className="hidden sm:block w-px h-8 bg-black/5" />
+          <div className="hidden sm:block w-px h-7 bg-black/5" />
 
           {/* WhatsApp / Phone */}
           <div className="flex items-center space-x-3 group">
-            <div className="w-9 h-9 rounded-xl bg-white border border-black/5 flex items-center justify-center text-[#121212] group-hover:bg-[#97F2CC]/30 transition-colors">
-              <Phone className="w-4 h-4" />
+            <div className="w-8 h-8 rounded-lg bg-white border border-black/5 flex items-center justify-center text-[#121212] group-hover:bg-[#97F2CC]/30 transition-colors">
+              <Phone className="w-3.5 h-3.5" />
             </div>
             <div>
               <div className="text-[10px] font-mono text-zinc-400 uppercase">
@@ -201,12 +201,12 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialMessage =
             </div>
           </div>
 
-          <div className="hidden sm:block w-px h-8 bg-black/5" />
+          <div className="hidden sm:block w-px h-7 bg-black/5" />
 
           {/* Social */}
           <div className="flex items-center space-x-3 group">
-            <div className="w-9 h-9 rounded-xl bg-white border border-black/5 flex items-center justify-center text-[#121212] group-hover:bg-[#97F2CC]/30 transition-colors">
-              <AtSign className="w-4 h-4" />
+            <div className="w-8 h-8 rounded-lg bg-white border border-black/5 flex items-center justify-center text-[#121212] group-hover:bg-[#97F2CC]/30 transition-colors">
+              <AtSign className="w-3.5 h-3.5" />
             </div>
             <div>
               <div className="text-[10px] font-mono text-zinc-400 uppercase">
@@ -220,30 +220,30 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialMessage =
         </div>
 
         {/* Contact Form Card */}
-        <div className="max-w-3xl mx-auto bg-[#F5F7F8] border border-black/[0.04] rounded-3xl p-6 sm:p-10 shadow-xs">
+        <div className="max-w-3xl mx-auto bg-[#F5F7F8] border border-black/[0.04] rounded-2xl p-4 sm:p-6 shadow-xs">
           {submitted ? (
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="text-center py-10 space-y-4"
+              className="text-center py-8 space-y-3"
             >
-              <div className="w-14 h-14 rounded-full bg-[#97F2CC]/30 border border-[#97F2CC] text-[#121212] flex items-center justify-center mx-auto">
-                <CheckCircle2 className="w-7 h-7 text-[#121212]" />
+              <div className="w-12 h-12 rounded-full bg-[#97F2CC]/30 border border-[#97F2CC] text-[#121212] flex items-center justify-center mx-auto">
+                <CheckCircle2 className="w-6 h-6 text-[#121212]" />
               </div>
-              <h3 className="font-display font-bold text-2xl text-[#121212]">
+              <h3 className="font-display font-bold text-xl text-[#121212]">
                 {t.contact.sentSuccess}
               </h3>
-              <p className="font-body text-[#121212] opacity-70 text-sm max-w-md mx-auto">
+              <p className="font-body text-[#121212] opacity-70 text-xs sm:text-sm max-w-md mx-auto">
                 {language === 'en'
                   ? 'Our engineering team will review your specifications and reply via email or WhatsApp in under 24 hours.'
                   : 'El equipo técnico liderado por Jonathan A. Dubón revisará los detalles de tu solicitud y te contactará en menos de 24 horas.'}
               </p>
-              <div className="pt-4 flex justify-center gap-3">
+              <div className="pt-3 flex justify-center gap-3">
                 <a
                   href={BRAND_INFO.whatsappUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center space-x-2 px-5 py-2.5 rounded-full bg-[#121212] hover:bg-black text-white text-xs font-semibold"
+                  className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-[#121212] hover:bg-black text-white text-xs font-semibold"
                 >
                   <MessageSquare className="w-4 h-4 text-[#97F2CC]" />
                   <span>WhatsApp Directo</span>
@@ -251,17 +251,17 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialMessage =
                 <button
                   type="button"
                   onClick={() => setSubmitted(false)}
-                  className="px-4 py-2.5 rounded-full bg-white border border-black/5 text-xs font-medium text-[#121212] hover:bg-zinc-100 cursor-pointer"
+                  className="px-4 py-2 rounded-full bg-white border border-black/5 text-xs font-medium text-[#121212] hover:bg-zinc-100 cursor-pointer"
                 >
                   {language === 'en' ? 'Send another message' : 'Enviar otro mensaje'}
                 </button>
               </div>
             </motion.div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-5">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-3.5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 <div>
-                  <label className="block text-xs font-mono font-medium text-zinc-500 uppercase mb-2">
+                  <label className="block text-[11px] font-mono font-medium text-zinc-500 uppercase mb-1">
                     {t.contact.nameLabel}
                   </label>
                   <input
@@ -270,12 +270,12 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialMessage =
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder={t.contact.namePlaceholder}
-                    className="w-full px-4 py-3 rounded-xl bg-white border border-black/[0.08] text-sm text-[#121212] placeholder-zinc-400 focus:outline-none focus:border-[#97F2CC] transition-all font-body"
+                    className="w-full px-3.5 py-2 sm:py-2.5 rounded-xl bg-white border border-black/[0.08] text-xs sm:text-sm text-[#121212] placeholder-zinc-400 focus:outline-none focus:border-[#97F2CC] transition-all font-body"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-mono font-medium text-zinc-500 uppercase mb-2">
+                  <label className="block text-[11px] font-mono font-medium text-zinc-500 uppercase mb-1">
                     {t.contact.emailLabel}
                   </label>
                   <input
@@ -284,14 +284,14 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialMessage =
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder={t.contact.emailPlaceholder}
-                    className="w-full px-4 py-3 rounded-xl bg-white border border-black/[0.08] text-sm text-[#121212] placeholder-zinc-400 focus:outline-none focus:border-[#97F2CC] transition-all font-body"
+                    className="w-full px-3.5 py-2 sm:py-2.5 rounded-xl bg-white border border-black/[0.08] text-xs sm:text-sm text-[#121212] placeholder-zinc-400 focus:outline-none focus:border-[#97F2CC] transition-all font-body"
                   />
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 <div>
-                  <label className="block text-xs font-mono font-medium text-zinc-500 uppercase mb-2">
+                  <label className="block text-[11px] font-mono font-medium text-zinc-500 uppercase mb-1">
                     {t.contact.phoneLabel}
                   </label>
                   <input
@@ -299,12 +299,12 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialMessage =
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     placeholder={t.contact.phonePlaceholder}
-                    className="w-full px-4 py-3 rounded-xl bg-white border border-black/[0.08] text-sm text-[#121212] placeholder-zinc-400 focus:outline-none focus:border-[#97F2CC] transition-all font-body"
+                    className="w-full px-3.5 py-2 sm:py-2.5 rounded-xl bg-white border border-black/[0.08] text-xs sm:text-sm text-[#121212] placeholder-zinc-400 focus:outline-none focus:border-[#97F2CC] transition-all font-body"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-mono font-medium text-zinc-500 uppercase mb-2">
+                  <label className="block text-[11px] font-mono font-medium text-zinc-500 uppercase mb-1">
                     {t.contact.serviceLabel}
                   </label>
                   {/* Modern Custom Dropdown */}
@@ -318,34 +318,34 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialMessage =
               </div>
 
               <div>
-                <label className="block text-xs font-mono font-medium text-zinc-500 uppercase mb-2">
+                <label className="block text-[11px] font-mono font-medium text-zinc-500 uppercase mb-1">
                   {t.contact.messageLabel}
                 </label>
                 <textarea
                   required
-                  rows={4}
+                  rows={2}
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   placeholder={t.contact.messagePlaceholder}
-                  className="w-full p-4 rounded-xl bg-white border border-black/[0.08] text-sm text-[#121212] placeholder-zinc-400 focus:outline-none focus:border-[#97F2CC] transition-all resize-none font-body"
+                  className="w-full p-3 rounded-xl bg-white border border-black/[0.08] text-xs sm:text-sm text-[#121212] placeholder-zinc-400 focus:outline-none focus:border-[#97F2CC] transition-all resize-none font-body"
                 />
               </div>
 
               {errorMsg && (
-                <div className="p-3.5 rounded-xl bg-red-500/10 border border-red-500/30 text-red-600 text-xs font-mono text-center">
+                <div className="p-2.5 rounded-xl bg-red-500/10 border border-red-500/30 text-red-600 text-xs font-mono text-center">
                   {errorMsg}
                 </div>
               )}
 
-              <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
-                <span className="text-xs font-mono text-zinc-400">
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-1">
+                <span className="text-[11px] font-mono text-zinc-400">
                   {t.contact.confidentialBadge} • {t.contact.slaBadge}
                 </span>
 
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full sm:w-auto px-9 py-3.5 rounded-full bg-[#97F2CC] hover:bg-[#80e2b7] text-[#18181B] font-bold text-xs tracking-tight transition-all duration-300 shadow-[0_4px_16px_rgba(151,242,204,0.35)] hover:shadow-[0_6px_24px_rgba(151,242,204,0.55)] hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center space-x-2.5 group cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
+                  className="w-full sm:w-auto px-7 py-2.5 rounded-full bg-[#97F2CC] hover:bg-[#80e2b7] text-[#18181B] font-bold text-xs tracking-tight transition-all duration-300 shadow-[0_4px_16px_rgba(151,242,204,0.35)] hover:shadow-[0_6px_24px_rgba(151,242,204,0.55)] hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center space-x-2 group cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
                 >
                   {loading ? (
                     <>

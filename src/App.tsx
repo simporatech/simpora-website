@@ -109,7 +109,7 @@ function MainLayout() {
           willChange: 'transform, opacity',
         }}
       >
-        <main className="relative z-10">
+        <main className="relative z-10 pt-20">
           {/* 1. Hero Section (ultra rápido, con chip NPU refinado y glow menta) */}
           <Hero
             onOpenConsultant={() => setIsChatOpen(true)}

@@ -1,18 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
   <defs>
     <radialGradient id="chipGlow" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="rgba(151, 242, 204, 0.25)" />
-      <stop offset="100%" stop-color="rgba(151, 242, 204, 0)" />
+      <stop offset="0%" stop-color="#97F2CC" stop-opacity="0.38" />
+      <stop offset="65%" stop-color="#97F2CC" stop-opacity="0.10" />
+      <stop offset="100%" stop-color="#97F2CC" stop-opacity="0" />
     </radialGradient>
   </defs>
-  <!-- High-contrast dark background for Google Search SERP visibility -->
-  <rect width="512" height="512" rx="108" fill="#0c0d0e" />
-  <circle cx="256" cy="256" r="220" fill="url(#chipGlow)" />
-  <rect x="24" y="24" width="464" height="464" rx="96" fill="none" stroke="rgba(151, 242, 204, 0.22)" stroke-width="8" />
+  <!-- Background with dark contrast for Google Search and tab visibility -->
+  <rect width="512" height="512" rx="112" fill="#0c0d0e" />
+  <circle cx="256" cy="256" r="215" fill="url(#chipGlow)" />
+  <rect x="18" y="18" width="476" height="476" rx="96" fill="none" stroke="#97F2CC" stroke-opacity="0.32" stroke-width="8" />
   <!-- Centered SIMPORA Chip Isotype -->
-  <g transform="translate(76, 92) scale(2.093)">
+  <g transform="translate(96, 110.55) scale(1.8607)">
     <g transform="translate(-48.650296, -35.314616)">
-      <path fill="#97F2CC" d="path12" />
+      <path fill="#97F2CC" d="svg1" />
     </g>
   </g>
 </svg>

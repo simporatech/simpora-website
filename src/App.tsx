@@ -117,11 +117,11 @@ function MainLayout() {
             isRevealed={isRevealed}
           />
 
-          {/* 2. Empresas que han confiado en SIMPORA (Social Proof & Autoridad) */}
-          <ClientsSection />
-
-          {/* 3. About SIMPORA Section */}
+          {/* 2. Sobre SIMPORA (Misión, Fundador & Rigor Técnico) */}
           <AboutSection />
+
+          {/* 3. Empresas que han confiado en SIMPORA (Social Proof & Autoridad) */}
+          <ClientsSection />
 
           {/* 4. Servicios Principales (Bento Grid: 6 Pillars) */}
           <ServicesBento onSelectServiceForDiagnosis={handleSelectServiceForDiagnosis} />

@@ -211,16 +211,25 @@ export const GeminiChatModal: React.FC<GeminiChatModalProps> = ({
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/40 backdrop-blur-xs">
+        <>
+          {/* Backdrop on mobile only */}
           <motion.div
-            initial={{ opacity: 0, y: 30, scale: 0.96 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={onClose}
+            className="sm:hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-xs"
+          />
+
+          <motion.div
+            initial={{ opacity: 0, y: 24, scale: 0.96 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 30, scale: 0.96 }}
-            transition={{ duration: 0.3 }}
-            className={`w-full bg-[#121212] text-white border border-white/10 shadow-2xl flex flex-col overflow-hidden sm:rounded-3xl transition-all duration-300 ${
+            exit={{ opacity: 0, y: 24, scale: 0.96 }}
+            transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+            className={`fixed z-50 overflow-hidden flex flex-col bg-[#111214] text-white border border-white/15 shadow-[0_20px_60px_rgba(0,0,0,0.8)] transition-all duration-300 ${
               isExpanded
-                ? 'h-[92vh] max-w-4xl'
-                : 'h-[85vh] sm:h-[620px] max-w-xl rounded-t-3xl sm:rounded-3xl'
+                ? 'inset-3 sm:inset-auto sm:bottom-6 sm:right-6 sm:w-[680px] sm:h-[85vh] rounded-2xl sm:rounded-3xl'
+                : 'inset-x-0 bottom-0 h-[85vh] sm:inset-auto sm:bottom-6 sm:right-6 sm:w-[440px] sm:h-[620px] sm:max-h-[85vh] rounded-t-3xl sm:rounded-3xl'
             }`}
           >
             {/* Header */}
@@ -411,7 +420,7 @@ export const GeminiChatModal: React.FC<GeminiChatModalProps> = ({
               </div>
             </div>
           </motion.div>
-        </div>
+        </>
       )}
     </AnimatePresence>
   );

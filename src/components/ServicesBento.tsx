@@ -222,21 +222,21 @@ export const ServicesBento: React.FC<ServicesBentoProps> = ({
   };
 
   return (
-    <section id="servicios" className="py-16 sm:py-24 bg-white/85 relative z-10 overflow-hidden scroll-mt-20 lg:scroll-mt-24">
+    <section id="servicios" className="py-16 sm:py-20 lg:py-24 bg-white/85 relative z-10 overflow-hidden scroll-mt-20 lg:scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 w-full">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-14 gap-5 sm:gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 gap-5 sm:gap-6">
           <div className="max-w-2xl text-left">
-            <div className="inline-flex items-center space-x-2 text-xs font-mono font-semibold tracking-wider text-zinc-500 uppercase mb-3">
+            <div className="inline-flex items-center space-x-2 text-xs font-mono font-semibold tracking-wider text-zinc-500 uppercase mb-2">
               <span className="w-1.5 h-1.5 rounded-full bg-[#97F2CC]" />
               <span>{t.services.badge}</span>
             </div>
             <TextScrubHeading
               text={t.services.heading}
-              className="text-3xl sm:text-4xl lg:text-5xl text-[#121212]"
+              className="text-2xl sm:text-3xl lg:text-4xl text-[#121212] tracking-tight"
               accentWord="Pilares"
             />
-            <p className="mt-3 font-body text-[#121212] opacity-70 text-sm sm:text-lg">
+            <p className="mt-2 font-body text-xs sm:text-sm md:text-base text-zinc-600 leading-relaxed max-w-2xl">
               {t.services.subtitle}
             </p>
           </div>
@@ -244,7 +244,7 @@ export const ServicesBento: React.FC<ServicesBentoProps> = ({
           <div className="text-left md:text-right">
             <a
               href="#solution-finder"
-              className="inline-flex items-center space-x-2 text-xs font-mono font-semibold text-[#121212] opacity-75 hover:opacity-100 transition-opacity cursor-pointer"
+              className="btn-outline text-xs"
             >
               <span>{t.services.diagnoseBtn}</span>
               <ArrowRight className="w-3.5 h-3.5 text-[#97F2CC]" />

@@ -147,7 +147,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialMessage =
           <h2 className="font-display font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#121212] tracking-tight">
             {t.contact.heading}
           </h2>
-          <p className="mt-1 font-body text-xs sm:text-sm text-[#121212] opacity-70">
+          <p className="mt-1.5 font-body text-xs sm:text-sm text-zinc-600 max-w-2xl mx-auto leading-relaxed">
             {t.contact.description}
           </p>
         </div>
@@ -345,7 +345,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialMessage =
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full sm:w-auto px-7 py-2.5 rounded-full bg-[#97F2CC] hover:bg-[#80e2b7] text-[#18181B] font-bold text-xs tracking-tight transition-all duration-300 shadow-[0_4px_16px_rgba(151,242,204,0.35)] hover:shadow-[0_6px_24px_rgba(151,242,204,0.55)] hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center space-x-2 group cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
+                  className="btn-primary w-full sm:w-auto py-2.5 px-6 group"
                 >
                   {loading ? (
                     <>

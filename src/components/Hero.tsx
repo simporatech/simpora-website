@@ -162,7 +162,7 @@ export const Hero: React.FC<HeroProps> = ({
             <motion.p
               variants={textVariant}
               style={{ willChange: 'transform, opacity' }}
-              className="font-body text-sm sm:text-lg text-[#121212] max-w-xl leading-relaxed font-normal"
+              className="font-body text-sm sm:text-base md:text-lg text-zinc-600 max-w-xl leading-relaxed font-normal"
             >
               {t.hero.subtitle}
             </motion.p>
@@ -175,7 +175,7 @@ export const Hero: React.FC<HeroProps> = ({
             >
               <a
                 href="#solution-finder"
-                className="inline-flex items-center justify-center space-x-2.5 px-6 py-3.5 rounded-full bg-[#121212] hover:bg-black text-white font-semibold text-xs tracking-tight transition-all shadow-xs hover:shadow group cursor-pointer"
+                className="btn-secondary group"
               >
                 <Sparkles className="w-3.5 h-3.5 text-[#97F2CC]" />
                 <span>{t.hero.ctaAi}</span>
@@ -184,7 +184,7 @@ export const Hero: React.FC<HeroProps> = ({
 
               <a
                 href="#servicios"
-                className="inline-flex items-center justify-center space-x-2 px-6 py-3.5 rounded-full bg-[#F5F7F8] hover:bg-white border border-black/5 text-[#121212] font-semibold text-xs transition-all hover:border-[#97F2CC] cursor-pointer"
+                className="btn-outline hover:border-[#97F2CC]"
               >
                 <span>{t.hero.ctaServices}</span>
               </a>

@@ -238,16 +238,15 @@ export const SolutionFinder: React.FC<SolutionFinderProps> = ({
         {/* Section Header with 100% Crisp Contrast */}
         <div className="flex items-center justify-between gap-3 pb-2 sm:pb-3 border-b border-black/5 shrink-0">
           <div>
-            <div className="flex items-center gap-2 mb-1">
-              <span className="inline-flex items-center gap-1 bg-[#97F2CC]/30 border border-[#97F2CC] text-[#121212] px-2.5 py-0.5 rounded-full text-[10px] font-mono font-extrabold uppercase tracking-wider">
-                <Sparkles className="w-3 h-3 text-[#121212]" />
-                <span>{language === 'en' ? 'AI CHATBOT' : 'CHATBOT DE IA'}</span>
-              </span>
-              <span className="text-[11px] font-mono text-zinc-500 hidden sm:inline">
-                {language === 'en' ? 'Core: Gemini 3.8 Flash • Systems Architecture' : 'Motor: Gemini 3.8 Flash • Arquitectura de Sistemas'}
+            <div className="inline-flex items-center space-x-2 text-xs font-mono font-semibold tracking-wider text-zinc-500 uppercase mb-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#97F2CC]" />
+              <span>{language === 'en' ? 'AI SOLUTION FINDER' : 'CONSULTOR DE IA'}</span>
+              <span className="text-zinc-300 hidden sm:inline">|</span>
+              <span className="text-zinc-500 text-[11px] normal-case tracking-normal hidden sm:inline">
+                {language === 'en' ? 'Core: Gemini 2.5 Flash' : 'Motor: Gemini 2.5 Flash'}
               </span>
             </div>
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-display font-black text-[#121212] tracking-tight">
+            <h2 className="font-display font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#121212] tracking-tight">
               SIMPORA <span className="text-[#121212] underline decoration-[#97F2CC] decoration-4">AI Chatbot</span>
             </h2>
           </div>
@@ -265,7 +264,7 @@ export const SolutionFinder: React.FC<SolutionFinderProps> = ({
               href={BRAND_INFO.whatsappUrl}
               target="_blank"
               rel="noreferrer"
-              className="hidden sm:inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-full bg-[#121212] hover:bg-black text-white text-xs font-semibold transition-all cursor-pointer shadow-xs"
+              className="hidden sm:inline-flex btn-secondary text-xs px-3.5 py-1.5"
             >
               <span>WhatsApp</span>
               <ArrowUpRight className="w-3 h-3 text-[#97F2CC]" />

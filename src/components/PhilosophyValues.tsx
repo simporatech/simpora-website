@@ -31,10 +31,10 @@ export const PhilosophyValues: React.FC = () => {
           </div>
           <TextScrubHeading
             text={t.philosophy.heading}
-            className="text-2xl sm:text-3xl lg:text-4xl text-[#121212]"
+            className="text-2xl sm:text-3xl lg:text-4xl text-[#121212] tracking-tight"
             accentWord="Valores"
           />
-          <p className="mt-1.5 font-body text-[#121212] opacity-70 text-xs sm:text-sm leading-relaxed">
+          <p className="mt-2 font-body text-xs sm:text-sm md:text-base text-zinc-600 leading-relaxed max-w-2xl">
             {t.philosophy.description}
           </p>
         </div>
@@ -47,17 +47,17 @@ export const PhilosophyValues: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4 }}
-            className="p-4 sm:p-5 rounded-2xl bg-[#F5F7F8] border border-black/[0.04] shadow-xs relative overflow-hidden hover:bg-white hover:border-[#97F2CC] transition-all group"
+            className="p-4 sm:p-5 rounded-2xl bg-[#F5F7F8] border border-black/[0.06] shadow-xs relative overflow-hidden hover:bg-white hover:border-[#97F2CC] transition-all group"
           >
-            <div className="flex items-center space-x-3 mb-4">
-              <span className="w-9 h-9 rounded-xl bg-white border border-black/5 flex items-center justify-center group-hover:bg-[#97F2CC]/30 transition-colors">
+            <div className="flex items-center space-x-3 mb-3">
+              <span className="w-8 h-8 rounded-xl bg-white border border-black/5 flex items-center justify-center group-hover:bg-[#97F2CC]/30 transition-colors">
                 <Compass className="w-4 h-4 text-[#121212]" />
               </span>
-              <h3 className="font-display font-bold text-xl text-[#121212]">
+              <h3 className="font-display font-bold text-lg sm:text-xl text-[#121212]">
                 {t.philosophy.visionTitle}
               </h3>
             </div>
-            <p className="font-body text-[#121212] opacity-70 text-sm sm:text-base leading-relaxed">
+            <p className="font-body text-zinc-600 text-xs sm:text-sm leading-relaxed">
               {t.philosophy.visionDesc}
             </p>
           </motion.div>
@@ -68,17 +68,17 @@ export const PhilosophyValues: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.08 }}
-            className="p-4 sm:p-5 rounded-2xl bg-[#F5F7F8] border border-black/[0.04] shadow-xs relative overflow-hidden hover:bg-white hover:border-[#97F2CC] transition-all group"
+            className="p-4 sm:p-5 rounded-2xl bg-[#F5F7F8] border border-black/[0.06] shadow-xs relative overflow-hidden hover:bg-white hover:border-[#97F2CC] transition-all group"
           >
             <div className="flex items-center space-x-3 mb-3">
               <span className="w-8 h-8 rounded-xl bg-white border border-black/5 flex items-center justify-center group-hover:bg-[#97F2CC]/30 transition-colors">
                 <Target className="w-4 h-4 text-[#121212]" />
               </span>
-              <h3 className="font-display font-bold text-lg text-[#121212]">
+              <h3 className="font-display font-bold text-lg sm:text-xl text-[#121212]">
                 {t.philosophy.missionTitle}
               </h3>
             </div>
-            <p className="font-body text-[#121212] opacity-70 text-xs sm:text-sm leading-relaxed">
+            <p className="font-body text-zinc-600 text-xs sm:text-sm leading-relaxed">
               {t.philosophy.missionDesc}
             </p>
           </motion.div>
@@ -93,7 +93,7 @@ export const PhilosophyValues: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: idx * 0.08 }}
-              className="p-4 sm:p-5 rounded-2xl bg-[#F5F7F8] border border-black/[0.04] hover:bg-white hover:border-[#97F2CC] shadow-xs transition-all flex flex-col justify-between group"
+              className="p-4 sm:p-5 rounded-2xl bg-[#F5F7F8] border border-black/[0.06] hover:bg-white hover:border-[#97F2CC] shadow-xs transition-all flex flex-col justify-between group"
             >
               <div>
                 <div className="flex items-center justify-between mb-3">
@@ -105,14 +105,14 @@ export const PhilosophyValues: React.FC = () => {
                   </span>
                 </div>
 
-                <h4 className="font-display font-bold text-base text-[#121212] mb-0.5">
+                <h4 className="font-display font-bold text-base sm:text-lg text-[#121212] mb-0.5">
                   {val.title}
                 </h4>
                 <div className="text-[11px] font-mono text-zinc-400 mb-2">
                   {val.subtitle}
                 </div>
 
-                <p className="font-body text-xs text-[#121212] opacity-65 leading-relaxed mb-3">
+                <p className="font-body text-xs sm:text-sm text-zinc-600 leading-relaxed mb-3">
                   {val.description}
                 </p>
               </div>

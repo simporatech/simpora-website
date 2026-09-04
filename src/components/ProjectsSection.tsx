@@ -8,18 +8,18 @@ export const ProjectsSection: React.FC = () => {
   const { t, language } = useLanguage();
 
   return (
-    <section id="proyectos" className="py-20 sm:py-28 bg-white border-t border-black/5 relative z-10 overflow-hidden scroll-mt-20 lg:scroll-mt-24">
+    <section id="proyectos" className="py-16 sm:py-20 lg:py-24 bg-white border-t border-black/5 relative z-10 overflow-hidden scroll-mt-20 lg:scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 w-full">
         {/* Section Header */}
-        <div className="max-w-3xl mb-12 sm:mb-16 text-left">
-          <div className="inline-flex items-center space-x-2 text-xs font-mono font-semibold tracking-wider text-zinc-500 uppercase mb-3">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#97F2CC] shadow-[0_0_8px_#97F2CC]" />
+        <div className="max-w-3xl mb-8 sm:mb-12 text-left">
+          <div className="inline-flex items-center space-x-2 text-xs font-mono font-semibold tracking-wider text-zinc-500 uppercase mb-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#97F2CC]" />
             <span>{t.projects.badge}</span>
           </div>
-          <h2 className="font-display font-extrabold text-2xl sm:text-4xl text-[#121212] tracking-tight mb-4">
+          <h2 className="font-display font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#121212] tracking-tight mb-2">
             {t.projects.heading}
           </h2>
-          <p className="font-body text-zinc-600 text-sm sm:text-base leading-relaxed">
+          <p className="font-body text-xs sm:text-sm md:text-base text-zinc-600 leading-relaxed max-w-2xl">
             {t.projects.subtitle}
           </p>
         </div>
@@ -36,7 +36,7 @@ export const ProjectsSection: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-80px' }}
                 transition={{ duration: 0.5, delay: idx * 0.12 }}
-                className={`relative flex flex-col justify-between p-7 sm:p-10 rounded-3xl transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-1 overflow-hidden ${
+                className={`relative flex flex-col justify-between p-6 sm:p-8 rounded-2xl transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-1 overflow-hidden ${
                   isGrowy
                     ? 'bg-[#0c0d0e] text-white border border-white/10'
                     : 'bg-[#F5F7F8] text-[#121212] border border-black/[0.06]'
@@ -160,11 +160,7 @@ export const ProjectsSection: React.FC = () => {
                     href={project.website}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`inline-flex items-center justify-center space-x-2 px-6 py-3 rounded-full text-xs font-bold font-body transition-all duration-300 group cursor-pointer ${
-                      isGrowy
-                        ? 'bg-[#97F2CC] hover:bg-[#82e0b8] text-[#121212] shadow-[0_0_20px_rgba(151,242,204,0.3)] hover:scale-105'
-                        : 'bg-[#121212] hover:bg-black text-white shadow-xs hover:scale-105'
-                    }`}
+                    className={`group ${isGrowy ? 'btn-primary' : 'btn-secondary'}`}
                   >
                     <span>{t.projects.liveDemo}</span>
                     <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

@@ -19,10 +19,10 @@ export const AboutSection: React.FC = () => {
           </div>
           <TextScrubHeading
             text={t.about.heading}
-            className="text-2xl sm:text-3xl lg:text-4xl text-[#121212]"
+            className="text-2xl sm:text-3xl lg:text-4xl text-[#121212] tracking-tight"
             accentWord="SIMPORA"
           />
-          <p className="mt-2 font-body text-[#121212] opacity-70 text-xs sm:text-sm leading-relaxed">
+          <p className="mt-2 font-body text-xs sm:text-sm md:text-base text-zinc-600 leading-relaxed max-w-2xl">
             {t.about.description}
           </p>
         </div>
@@ -54,14 +54,14 @@ export const AboutSection: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.08 }}
-                className="p-3 sm:p-4 rounded-xl bg-[#F5F7F8] border border-black/[0.04] hover:bg-white hover:border-[#97F2CC] transition-all group shadow-xs"
+                className="p-3 sm:p-4 rounded-2xl bg-[#F5F7F8] border border-black/[0.06] hover:bg-white hover:border-[#97F2CC] transition-all group shadow-xs"
               >
                 <div className="flex items-start justify-between mb-2">
                   <div className="flex items-center space-x-2.5 sm:space-x-3">
                     <span className="flex items-center justify-center w-7 h-7 rounded-lg bg-white border border-black/5 group-hover:bg-[#97F2CC]/30 transition-colors">
                       <CheckCircle2 className="w-4 h-4 text-[#121212]" />
                     </span>
-                    <h3 className="font-display font-semibold text-sm sm:text-lg text-[#121212]">
+                    <h3 className="font-display font-bold text-sm sm:text-base text-[#121212]">
                       {point.title}
                     </h3>
                   </div>
@@ -69,7 +69,7 @@ export const AboutSection: React.FC = () => {
                     {point.badge}
                   </span>
                 </div>
-                <p className="text-xs sm:text-sm text-[#121212] opacity-75 font-body leading-relaxed pl-9.5">
+                <p className="text-xs sm:text-sm text-zinc-600 font-body leading-relaxed pl-9.5">
                   {point.desc}
                 </p>
               </motion.div>
@@ -162,7 +162,7 @@ export const AboutSection: React.FC = () => {
                 href={BRAND_INFO.whatsappUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center justify-center space-x-1.5 px-4 py-2.5 rounded-full bg-[#97F2CC] text-[#121212] font-semibold text-xs hover:bg-[#86e2bc] transition-all duration-200 shadow-xs hover:shadow-md cursor-pointer"
+                className="btn-primary text-xs py-2 px-4 shadow-xs hover:shadow"
               >
                 <span>{t.about.connectBtn}</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />

@@ -40,16 +40,16 @@ export const TechStackCarousel: React.FC = () => {
   const doubleStack = [...TECH_STACK, ...TECH_STACK];
 
   return (
-    <section id="stack" className="py-16 sm:py-20 bg-[#F5F7F8] border-y border-black/5 relative z-10 overflow-hidden scroll-mt-20 lg:scroll-mt-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 mb-10 text-center">
+    <section id="stack" className="py-16 sm:py-20 lg:py-24 bg-[#F5F7F8] border-y border-black/5 relative z-10 overflow-hidden scroll-mt-20 lg:scroll-mt-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 mb-8 sm:mb-10 text-center">
         <div className="inline-flex items-center space-x-2 text-xs font-mono font-semibold tracking-wider text-zinc-500 uppercase mb-2">
           <span className="w-1.5 h-1.5 rounded-full bg-[#97F2CC]" />
           <span>{t.techStack.badge}</span>
         </div>
-        <h3 className="font-display font-extrabold text-2xl sm:text-3xl text-[#121212] tracking-tight">
+        <h2 className="font-display font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#121212] tracking-tight">
           {t.techStack.heading}
-        </h3>
-        <p className="text-[#121212] opacity-70 text-sm font-body max-w-xl mx-auto mt-2">
+        </h2>
+        <p className="font-body text-xs sm:text-sm md:text-base text-zinc-600 leading-relaxed max-w-2xl mx-auto mt-2">
           {t.techStack.description}
         </p>
       </div>

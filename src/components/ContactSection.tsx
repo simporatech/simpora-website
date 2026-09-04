@@ -136,7 +136,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialMessage =
   }));
 
   return (
-    <section id="contacto" className="min-h-screen flex flex-col justify-center py-16 sm:py-20 lg:py-24 bg-white/85 relative z-10">
+    <section id="contacto" className="min-h-screen min-h-[calc(100dvh-5rem)] flex flex-col justify-center pt-24 pb-14 lg:pt-28 lg:pb-16 bg-white/85 relative z-10 scroll-mt-20 lg:scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 w-full">
         {/* Section Header with Motto */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">

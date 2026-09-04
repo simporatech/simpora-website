@@ -99,7 +99,7 @@ export const Hero: React.FC<HeroProps> = ({
     <section
       ref={heroRef}
       id="hero"
-      className="relative z-10 min-h-screen pt-20 pb-12 lg:pt-24 lg:pb-16 overflow-hidden flex flex-col justify-center bg-transparent"
+      className="relative z-10 min-h-screen min-h-[calc(100dvh-5rem)] pt-20 pb-12 lg:pt-24 lg:pb-16 overflow-hidden flex flex-col justify-center bg-transparent scroll-mt-20 lg:scroll-mt-24"
     >
       {/* Subtle Dot-Grid Canvas Texture */}
       <div className="absolute inset-0 bg-[radial-gradient(#d1d5db_1.25px,transparent_1.25px)] [background-size:24px_24px] [mask-image:radial-gradient(ellipse_75%_65%_at_50%_45%,#000_50%,transparent_100%)] opacity-35 pointer-events-none -z-10" />

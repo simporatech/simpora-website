@@ -27,9 +27,11 @@ export const Navbar: React.FC<NavbarProps> = ({ isRevealed = true }) => {
     if (href === '#hero') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
-      const el = document.querySelector(href);
+      const el = document.querySelector(href) as HTMLElement | null;
       if (el) {
-        el.scrollIntoView({ behavior: 'smooth' });
+        const navHeight = 84;
+        const targetPos = el.getBoundingClientRect().top + window.pageYOffset - navHeight;
+        window.scrollTo({ top: targetPos, behavior: 'smooth' });
       }
     }
   };

@@ -8,7 +8,7 @@ export const ProjectsSection: React.FC = () => {
   const { t, language } = useLanguage();
 
   return (
-    <section id="proyectos" className="py-20 sm:py-28 bg-white border-t border-black/5 relative z-10 overflow-hidden">
+    <section id="proyectos" className="py-20 sm:py-28 bg-white border-t border-black/5 relative z-10 overflow-hidden scroll-mt-20 lg:scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 w-full">
         {/* Section Header */}
         <div className="max-w-3xl mb-12 sm:mb-16 text-left">

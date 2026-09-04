@@ -222,7 +222,7 @@ export const ServicesBento: React.FC<ServicesBentoProps> = ({
   };
 
   return (
-    <section id="servicios" className="py-16 sm:py-24 bg-white/85 relative z-10 overflow-hidden">
+    <section id="servicios" className="py-16 sm:py-24 bg-white/85 relative z-10 overflow-hidden scroll-mt-20 lg:scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 w-full">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-14 gap-5 sm:gap-6">

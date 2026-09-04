@@ -40,7 +40,6 @@ export const SolutionFinder: React.FC<SolutionFinderProps> = ({
   ]);
   const [inputValue, setInputValue] = useState('');
   const [loading, setLoading] = useState(false);
-  const messagesEndRef = useRef<HTMLDivElement>(null);
 
   // When language toggles and only welcome is present, update welcome message
   useEffect(() => {
@@ -64,8 +63,15 @@ export const SolutionFinder: React.FC<SolutionFinderProps> = ({
     }
   }, [externalPreset]);
 
+  const chatContainerRef = useRef<HTMLDivElement>(null);
+
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (chatContainerRef.current) {
+      chatContainerRef.current.scrollTo({
+        top: chatContainerRef.current.scrollHeight,
+        behavior: 'smooth',
+      });
+    }
   };
 
   useEffect(() => {
@@ -226,7 +232,7 @@ export const SolutionFinder: React.FC<SolutionFinderProps> = ({
   return (
     <section
       id="solution-finder"
-      className="h-[100vh] h-[100dvh] max-h-[100dvh] min-h-[100dvh] w-full flex flex-col justify-between bg-white text-[#121212] relative z-10 px-3 sm:px-6 md:px-12 py-3 sm:py-5 overflow-hidden"
+      className="h-screen min-h-[100dvh] max-h-[100dvh] pt-20 sm:pt-24 pb-3 sm:pb-5 px-3 sm:px-6 md:px-12 w-full flex flex-col justify-between bg-white text-[#121212] relative z-10 overflow-hidden scroll-mt-20 lg:scroll-mt-24"
     >
       <div className="max-w-4xl mx-auto w-full h-full flex flex-col">
         {/* Section Header with 100% Crisp Contrast */}
@@ -291,7 +297,7 @@ export const SolutionFinder: React.FC<SolutionFinderProps> = ({
           </div>
 
           {/* Scrollable Message History */}
-          <div className="flex-1 min-h-0 overflow-y-auto p-3.5 sm:p-5 space-y-3.5">
+          <div ref={chatContainerRef} className="flex-1 min-h-0 overflow-y-auto p-3.5 sm:p-5 space-y-3.5">
             {messages.map((msg) => {
               const isUser = msg.role === 'user';
               return (
@@ -348,8 +354,6 @@ export const SolutionFinder: React.FC<SolutionFinderProps> = ({
                 </div>
               </div>
             )}
-
-            <div ref={messagesEndRef} />
           </div>
 
           {/* Quick Clickable Suggestions */}

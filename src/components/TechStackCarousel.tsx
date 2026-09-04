@@ -40,7 +40,7 @@ export const TechStackCarousel: React.FC = () => {
   const doubleStack = [...TECH_STACK, ...TECH_STACK];
 
   return (
-    <section id="stack" className="py-16 sm:py-20 bg-[#F5F7F8] border-y border-black/5 relative z-10 overflow-hidden">
+    <section id="stack" className="py-16 sm:py-20 bg-[#F5F7F8] border-y border-black/5 relative z-10 overflow-hidden scroll-mt-20 lg:scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 mb-10 text-center">
         <div className="inline-flex items-center space-x-2 text-xs font-mono font-semibold tracking-wider text-zinc-500 uppercase mb-2">
           <span className="w-1.5 h-1.5 rounded-full bg-[#97F2CC]" />

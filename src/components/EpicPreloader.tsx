@@ -65,9 +65,10 @@ export const EpicPreloader: React.FC<EpicPreloaderProps> = ({ onRevealStart, onC
         setPhase('surging');
         setStageText('HYPERDRIVE ENGAGED // SIMPORA ONLINE');
 
-        // Smooth 60 FPS SVG Shockwave & Liftoff
+        // Smooth 60 FPS SVG Shockwave & Liftoff - UNLOCK SCROLL IMMEDIATELY
         const timerExplosion = setTimeout(() => {
           setPhase('exploding');
+          document.body.style.overflow = ''; // Unlock scroll immediately so user can scroll simultaneously
 
           if (onRevealStartRef.current) {
             onRevealStartRef.current();
@@ -75,15 +76,13 @@ export const EpicPreloader: React.FC<EpicPreloaderProps> = ({ onRevealStart, onC
 
           const timerComplete = setTimeout(() => {
             setIsVisible(false);
-            document.body.style.overflow = '';
-            window.scrollTo({ top: 0, left: 0, behavior: 'instant' as ScrollBehavior });
             if (onCompleteRef.current) {
               onCompleteRef.current();
             }
-          }, 580);
+          }, 480);
 
           return () => clearTimeout(timerComplete);
-        }, 140);
+        }, 120);
 
         return () => clearTimeout(timerExplosion);
       }
@@ -111,7 +110,9 @@ export const EpicPreloader: React.FC<EpicPreloaderProps> = ({ onRevealStart, onC
         animate={isExploding ? { opacity: 0 } : { opacity: 1 }}
         transition={isExploding ? { duration: 0.48, ease: [0.16, 1, 0.3, 1] } : { duration: 0.1 }}
         style={{ willChange: 'opacity' }}
-        className="absolute inset-0 bg-[#0c0d0e] flex flex-col items-center justify-center text-white pointer-events-auto"
+        className={`absolute inset-0 bg-[#0c0d0e] flex flex-col items-center justify-center text-white transition-opacity ${
+          isExploding ? 'pointer-events-none' : 'pointer-events-auto'
+        }`}
       >
         {/* Cybernetic High-Tech Grid Background */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:2.5rem_2.5rem] pointer-events-none" />

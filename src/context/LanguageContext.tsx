@@ -34,9 +34,12 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   const [language, setLanguageState] = useState<Language>(getInitialLanguage);
 
   useEffect(() => {
-    // Update HTML lang attribute and enforce canonical title
+    // Update HTML lang attribute and enforce canonical commercial title
     document.documentElement.lang = language;
-    document.title = 'SIMPORA | Simple. Powerful. Advanced';
+    document.title =
+      language === 'en'
+        ? 'SIMPORA | Custom Software Engineering & Applied AI Solutions'
+        : 'SIMPORA | Soluciones de Ingeniería de Software e IA Aplicada';
   }, [language]);
 
   const setLanguage = (lang: Language) => {

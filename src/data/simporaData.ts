@@ -1,4 +1,4 @@
-import { ServicePillar, BusinessValue } from '../types';
+import { ServicePillar, BusinessValue, ClientItem, ProjectItem } from '../types';
 
 export const BRAND_INFO = {
   name: 'SIMPORA',
@@ -171,5 +171,174 @@ export const QUICK_PROMPT_PRESETS = [
   {
     label: 'Capacitación en IA para Negocios',
     prompt: 'Queremos que nuestro equipo administrativo y técnico domine herramientas de IA para duplicar su productividad.',
+  },
+];
+
+export const CLIENTS_DATA: ClientItem[] = [
+  {
+    id: 'profesionales-culinarios',
+    name: 'Profesionales Culinarios',
+    logo: '/assets/clients/profesionales-culinarios.png',
+    website: 'https://profesionalesculinarios.com/',
+    category: {
+      es: 'Consultoría Gastronómica Regional',
+      en: 'Regional Culinary Consulting',
+    },
+    whatWeDid: {
+      es: 'Digitalización de Procesos',
+      en: 'Process Digitization & Operational Workflows',
+    },
+    description: {
+      es: 'Firma de consultoría culinaria líder en Centroamérica, especializada en estandarización de costos, capacitación de brigadas de cocina y diseño de experiencias gastronómicas de alto nivel.',
+      en: 'Premier culinary consulting firm in Central America, specializing in food cost standardization, kitchen team enablement, and high-caliber gastronomic management.',
+    },
+    tags: ['Consultoría HORECA', 'Optimización Operativa', 'Estandarización'],
+  },
+  {
+    id: 'donut-heaven',
+    name: 'Donut Heaven',
+    logo: '/assets/clients/donut-heaven.jpg',
+    category: {
+      es: 'Repostería Artesanal & Retail',
+      en: 'Artisanal Bakery & Food Retail',
+    },
+    whatWeDid: {
+      es: 'Digitalización de Procesos',
+      en: 'Process Digitization & Order Flow Systems',
+    },
+    description: {
+      es: 'Cadena boutique de venta de donas artesanales y repostería gourmet con alta afluencia de pedidos diarios y rotación rápida de producto en mostrador y delivery.',
+      en: 'Boutique gourmet donut and artisanal pastry brand with high-volume daily orders, rapid retail turnaround, and dynamic fulfillment channels.',
+    },
+    tags: ['Flujo de Pedidos', 'Control Operativo', 'Digitalización Comercial'],
+  },
+  {
+    id: 'hotel-marina-copan',
+    name: 'Hotel Marina Copán',
+    logo: '/assets/clients/hotel-marina-copan.png',
+    website: 'https://hotelmarinacopan.com',
+    category: {
+      es: 'Hospitalidad & Turismo Histórico (4 Estrellas)',
+      en: 'Historic Hospitality & Tourism (4-Star)',
+    },
+    whatWeDid: {
+      es: 'Ingeniería y Soporte IT de Tiempo Completo',
+      en: 'Full-Time Critical IT Engineering & Infrastructure',
+    },
+    description: {
+      es: 'Emblemático hotel histórico 4 estrellas fundado en 1945 en el corazón de Copán Ruinas, Honduras. Referente de hospitalidad colonial y sede principal para visitantes del parque arqueológico maya.',
+      en: 'Iconic 4-star historic hotel established in 1945 in the heart of Copán Ruinas, Honduras. A world-class heritage retreat and premier hub for global travelers to the ancient Mayan ruins.',
+    },
+    tags: ['Infraestructura Crítica', 'Redes de Alta Disponibilidad', 'Soporte 24/7'],
+  },
+  {
+    id: 'hotel-la-posada-copan',
+    name: 'Hotel La Posada de Copán',
+    logo: '/assets/clients/hotel-la-posada.png',
+    website: 'https://laposadacopan.com',
+    category: {
+      es: 'Hotel Boutique Colonial',
+      en: 'Colonial Boutique Hotel',
+    },
+    whatWeDid: {
+      es: 'Desarrollo de Plataforma Web & Presencia Digital',
+      en: 'Full Web Platform Engineering & Digital Presence',
+    },
+    description: {
+      es: 'Acogedor hotel boutique de arquitectura colonial propiedad del prestigioso Hotel Marina Copán en Copán Ruinas. Diseñado para ofrecer tranquilidad, descanso auténtico y cercanía al parque central.',
+      en: 'Charming colonial boutique hotel owned by the prestigious Hotel Marina Copán family in Copán Ruinas. Built for tranquil stays, authentic local warmth, and steps from the central plaza.',
+    },
+    tags: ['Ingeniería Web', 'Optimización de Reservas', 'Diseño Moderno'],
+  },
+];
+
+export const PROJECTS_DATA: ProjectItem[] = [
+  {
+    id: 'growy',
+    title: 'Growy by SIMPORA',
+    tagline: {
+      es: 'Ecosistema Inteligente de Finanzas Personales & Patrimonio',
+      en: 'Intelligent Personal Finance & Wealth Analytics Ecosystem',
+    },
+    category: {
+      es: 'SaaS Propietario • Fintech & Analítica',
+      en: 'Proprietary SaaS • Fintech & Analytics',
+    },
+    badge: {
+      es: 'Producto Propietario',
+      en: 'Proprietary Product',
+    },
+    logo: '/assets/projects/growy-logo.svg',
+    website: 'https://growy.simpora.dev',
+    displayUrl: 'growy.simpora.dev',
+    description: {
+      es: 'Plataforma integral diseñada y desarrollada desde cero por SIMPORA para transformar la gestión del dinero: presupuestos dinámicos, flujo de caja predictivo, métricas patrimoniales y categorización de gastos en tiempo real.',
+      en: 'All-in-one financial intelligence system engineered from scratch by SIMPORA: dynamic budgeting, predictive cash flow analytics, net worth tracking, and real-time transaction intelligence.',
+    },
+    features: {
+      es: [
+        'Métricas patrimoniales y balances en tiempo real',
+        'Presupuestos dinámicos y analítica predictiva de flujo de caja',
+        'Arquitectura cloud ultra rápida con cifrado de nivel bancario',
+        'Experiencia de usuario fluida y diseño minimalista de alta gama',
+      ],
+      en: [
+        'Real-time net worth and liquid asset balance tracking',
+        'Dynamic budgeting and predictive cash-flow forecasting',
+        'Ultra-fast cloud microservices with bank-grade encryption',
+        'Fluid user experience with clean, high-conviction ergonomics',
+      ],
+    },
+    metrics: {
+      label: {
+        es: 'Disponibilidad Cloud',
+        en: 'Cloud SLA Uptime',
+      },
+      value: '99.99%',
+    },
+  },
+  {
+    id: 'la-posada-copan',
+    title: 'Hotel La Posada de Copán',
+    tagline: {
+      es: 'Portal Web de Alta Velocidad y Motor de Reservas Directas',
+      en: 'High-Performance Web Portal & Direct Booking Engine',
+    },
+    category: {
+      es: 'Ingeniería Web • Hotelería & Turismo',
+      en: 'Web Engineering • Hospitality & Travel',
+    },
+    badge: {
+      es: 'Caso de Éxito',
+      en: 'Case Study',
+    },
+    logo: '/assets/projects/laposada-logo.png',
+    website: 'https://laposadacopan.com',
+    displayUrl: 'laposadacopan.com',
+    description: {
+      es: 'Sitio web oficial de alta fidelidad para el hotel boutique en Copán Ruinas. Desarrollado con tiempos de carga instantáneos, experiencia visual inmersiva, SEO local para turismo internacional e integración fluida de reservas directas.',
+      en: 'Official high-fidelity web platform for the colonial boutique hotel in Copán Ruinas. Engineered for instant page transitions, immersive visual storytelling, international SEO, and frictionless direct reservation flows.',
+    },
+    features: {
+      es: [
+        'Carga instantánea (<1s) y rendimiento Lighthouse superior a 95',
+        'Experiencia visual inmersiva de habitaciones y servicios',
+        'Estrategia de SEO técnico enfocada en viajeros globales',
+        'Canales de reserva directa integrados con WhatsApp y formulario',
+      ],
+      en: [
+        'Sub-second instant load times with 95+ Lighthouse performance',
+        'Immersive gallery showcases for rooms, courtyards, and amenities',
+        'Technical SEO architecture targeted at international travelers',
+        'Direct booking conversion channels integrated with WhatsApp and forms',
+      ],
+    },
+    metrics: {
+      label: {
+        es: 'Velocidad de Carga',
+        en: 'Page Load Speed',
+      },
+      value: '< 0.8s',
+    },
   },
 ];

@@ -7,6 +7,8 @@ import { ScrollCircuitSpine } from './components/ScrollCircuitSpine';
 import { Hero } from './components/Hero';
 import { AboutSection } from './components/AboutSection';
 import { ServicesBento } from './components/ServicesBento';
+import { ClientsSection } from './components/ClientsSection';
+import { ProjectsSection } from './components/ProjectsSection';
 import { SolutionFinder } from './components/SolutionFinder';
 import { PhilosophyValues } from './components/PhilosophyValues';
 import { TechStackCarousel } from './components/TechStackCarousel';
@@ -115,13 +117,19 @@ function MainLayout() {
             isRevealed={isRevealed}
           />
 
-          {/* 2. About SIMPORA Section */}
+          {/* 2. Empresas que han confiado en SIMPORA (Social Proof & Autoridad) */}
+          <ClientsSection />
+
+          {/* 3. About SIMPORA Section */}
           <AboutSection />
 
-          {/* 3. Servicios Principales (Bento Grid: 6 Pillars) */}
+          {/* 4. Servicios Principales (Bento Grid: 6 Pillars) */}
           <ServicesBento onSelectServiceForDiagnosis={handleSelectServiceForDiagnosis} />
 
-          {/* 4. SIMPORA AI Solution Finder (El gancho estrella) */}
+          {/* 5. Proyectos y Productos de SIMPORA (Growy & Hotel La Posada de Copán) */}
+          <ProjectsSection />
+
+          {/* 6. SIMPORA AI Solution Finder (El gancho estrella) */}
           <SolutionFinder
             externalPreset={solutionFinderPreset}
             onApplyDiagnosisToContact={handleApplyDiagnosisToContact}

@@ -5,6 +5,8 @@ export interface TranslationSchema {
     home: string;
     about: string;
     services: string;
+    clients: string;
+    projects: string;
     ai: string;
     solutionFinder: string;
     philosophy: string;
@@ -13,6 +15,23 @@ export interface TranslationSchema {
     letsTalk: string;
     contactBtn: string;
     mobileTag: string;
+  };
+  clients: {
+    badge: string;
+    heading: string;
+    subtitle: string;
+    whatWeDid: string;
+    visitWeb: string;
+    directImpact: string;
+  };
+  projects: {
+    badge: string;
+    heading: string;
+    subtitle: string;
+    liveDemo: string;
+    viewPlatform: string;
+    architectureTitle: string;
+    keyHighlights: string;
   };
   hero: {
     tagline: string;
@@ -182,6 +201,8 @@ export const TRANSLATIONS: Record<Language, TranslationSchema> = {
       home: 'Inicio',
       about: 'Sobre SIMPORA',
       services: 'Servicios',
+      clients: 'Empresas',
+      projects: 'Proyectos',
       ai: 'IA',
       solutionFinder: 'AI Solution Finder',
       philosophy: 'Filosofía',
@@ -190,6 +211,25 @@ export const TRANSLATIONS: Record<Language, TranslationSchema> = {
       letsTalk: 'Contacto',
       contactBtn: 'Contacto',
       mobileTag: 'Contacto',
+    },
+    clients: {
+      badge: 'CLIENTES & ALIANZAS ESTRATÉGICAS',
+      heading: 'Empresas que han confiado en SIMPORA',
+      subtitle:
+        'Marcas líderes en hospitalidad, consultoría regional y retail que han acelerado su infraestructura, presencia digital y operaciones con nuestra ingeniería.',
+      whatWeDid: 'Solución implementada por SIMPORA',
+      visitWeb: 'Visitar sitio web',
+      directImpact: 'Impacto Comprobado',
+    },
+    projects: {
+      badge: 'PORTAFOLIO DE INGENIERÍA & PRODUCTOS',
+      heading: 'Proyectos y Sistemas Desarrollados',
+      subtitle:
+        'Soluciones digitales propietarias y plataformas de alto rendimiento construidas con rigor técnico, código limpio y escalabilidad cloud.',
+      liveDemo: 'Ver Plataforma en Vivo',
+      viewPlatform: 'Explorar Proyecto',
+      architectureTitle: 'Aspectos Clave de Arquitectura',
+      keyHighlights: 'Capacidades destacadas',
     },
     hero: {
       tagline: 'SIMPLE. PODEROSA. AVANZADA.',
@@ -500,6 +540,8 @@ export const TRANSLATIONS: Record<Language, TranslationSchema> = {
       home: 'Home',
       about: 'About SIMPORA',
       services: 'Services',
+      clients: 'Clients',
+      projects: 'Projects',
       ai: 'AI',
       solutionFinder: 'AI Solution Finder',
       philosophy: 'Philosophy',
@@ -508,6 +550,25 @@ export const TRANSLATIONS: Record<Language, TranslationSchema> = {
       letsTalk: 'Contact',
       contactBtn: 'Contact',
       mobileTag: 'Contact',
+    },
+    clients: {
+      badge: 'TRUSTED CLIENTS & STRATEGIC ALLIANCES',
+      heading: 'Companies That Trust SIMPORA',
+      subtitle:
+        'Industry-leading hospitality, regional advisory, and food retail brands scaling their infrastructure, digital presence, and workflows with our engineering.',
+      whatWeDid: 'Delivered by SIMPORA',
+      visitWeb: 'Visit website',
+      directImpact: 'Proven Impact',
+    },
+    projects: {
+      badge: 'ENGINEERING PORTFOLIO & PRODUCTS',
+      heading: 'Featured Projects & Deployed Systems',
+      subtitle:
+        'Proprietary digital solutions and high-performance web platforms engineered with technical rigor, clean code, and cloud elasticity.',
+      liveDemo: 'Launch Live Platform',
+      viewPlatform: 'Explore Case Study',
+      architectureTitle: 'Core Architectural Highlights',
+      keyHighlights: 'Key capabilities',
     },
     hero: {
       tagline: 'SIMPLE. POWERFUL. ADVANCED.',

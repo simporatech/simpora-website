@@ -37,6 +37,8 @@ export const Navbar: React.FC<NavbarProps> = ({ isRevealed = true }) => {
   const navLinks = [
     { name: t.nav.about, href: '#about' },
     { name: t.nav.services, href: '#servicios' },
+    { name: t.nav.clients, href: '#clientes' },
+    { name: t.nav.projects, href: '#proyectos' },
     { name: t.nav.ai, href: '#solution-finder' },
     { name: t.nav.philosophy, href: '#filosofia' },
   ];

@@ -35,3 +35,55 @@ export interface ChatMessage {
   content: string;
   timestamp: string;
 }
+
+export interface ClientItem {
+  id: string;
+  name: string;
+  logo: string;
+  website?: string;
+  category: {
+    es: string;
+    en: string;
+  };
+  whatWeDid: {
+    es: string;
+    en: string;
+  };
+  description: {
+    es: string;
+    en: string;
+  };
+  tags: string[];
+}
+
+export interface ProjectItem {
+  id: string;
+  title: string;
+  tagline: {
+    es: string;
+    en: string;
+  };
+  category: {
+    es: string;
+    en: string;
+  };
+  badge: {
+    es: string;
+    en: string;
+  };
+  logo: string;
+  website: string;
+  displayUrl: string;
+  description: {
+    es: string;
+    en: string;
+  };
+  features: {
+    es: string[];
+    en: string[];
+  };
+  metrics?: {
+    label: { es: string; en: string };
+    value: string;
+  };
+}

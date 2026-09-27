@@ -19,8 +19,13 @@ import { FloatingAiButton } from './components/FloatingAiButton';
 import { CustomCursor } from './components/CustomCursor';
 import { CyberGridWarp } from './components/CyberGridWarp';
 import { NeuralConstellation } from './components/NeuralConstellation';
+import { ContactPage } from './pages/ContactPage';
 
-function MainLayout() {
+interface MainLayoutProps {
+  onNavigateContact?: () => void;
+}
+
+function MainLayout({ onNavigateContact }: MainLayoutProps) {
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [isRevealed, setIsRevealed] = useState(false);
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -156,10 +161,44 @@ function MainLayout() {
 }
 
 export default function App() {
+  const [currentPath, setCurrentPath] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const p = window.location.pathname.toLowerCase().replace(/\/+$/, '');
+      return p === '' ? '/' : p;
+    }
+    return '/';
+  });
+
+  useEffect(() => {
+    const handlePopState = () => {
+      const p = window.location.pathname.toLowerCase().replace(/\/+$/, '');
+      setCurrentPath(p === '' ? '/' : p);
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  const navigateTo = (path: string) => {
+    if (typeof window !== 'undefined') {
+      window.history.pushState(null, '', path);
+      const p = path.toLowerCase().replace(/\/+$/, '');
+      setCurrentPath(p === '' ? '/' : p);
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' as ScrollBehavior });
+    }
+  };
+
+  const isContactPage = currentPath === '/contact';
+
   return (
     <LanguageProvider>
-      <MainLayout />
+      {isContactPage ? (
+        <ContactPage onNavigateHome={() => navigateTo('/')} />
+      ) : (
+        <MainLayout onNavigateContact={() => navigateTo('/contact')} />
+      )}
     </LanguageProvider>
   );
 }
+
 

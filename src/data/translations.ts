@@ -193,6 +193,46 @@ export interface TranslationSchema {
     analyzing: string;
     quickPrompts: string[];
   };
+  contactPage: {
+    backToHome: string;
+    verifiedBadge: string;
+    founderRole: string;
+    availability: string;
+    saveContact: string;
+    saveContactSuccess: string;
+    whatsappAction: string;
+    callAction: string;
+    emailAction: string;
+    copiedEmail: string;
+    copyEmail: string;
+    shareCard: string;
+    qrModalTitle: string;
+    qrModalSubtitle: string;
+    qrScanHint: string;
+    copyLink: string;
+    linkCopied: string;
+    close: string;
+    linksTitle: string;
+    exploreWebsiteTitle: string;
+    exploreWebsiteDesc: string;
+    aiAssistantTitle: string;
+    aiAssistantDesc: string;
+    projectsTitle: string;
+    viewProject: string;
+    servicesTitle: string;
+    servicesSubtitle: string;
+    quickMessageTitle: string;
+    quickMessageSubtitle: string;
+    formName: string;
+    formEmailOrPhone: string;
+    formMessage: string;
+    formSend: string;
+    formSending: string;
+    formSuccess: string;
+    formSuccessDesc: string;
+    location: string;
+    slaResponse: string;
+  };
 }
 
 export const TRANSLATIONS: Record<Language, TranslationSchema> = {
@@ -534,6 +574,46 @@ export const TRANSLATIONS: Record<Language, TranslationSchema> = {
         'Hablar con Jonathan Dubón',
       ],
     },
+    contactPage: {
+      backToHome: 'Ir a simpora.dev',
+      verifiedBadge: 'Ing. en Sistemas & Fundador',
+      founderRole: 'Fundador & Director de Tecnología',
+      availability: 'Disponible para Proyectos',
+      saveContact: 'Guardar en Contactos',
+      saveContactSuccess: '¡Contacto guardado!',
+      whatsappAction: 'WhatsApp',
+      callAction: 'Llamar',
+      emailAction: 'Correo',
+      copiedEmail: '¡Copiado!',
+      copyEmail: 'Copiar correo',
+      shareCard: 'Compartir / QR',
+      qrModalTitle: 'Tarjeta Digital SIMPORA',
+      qrModalSubtitle: 'Escanea con la cámara de tu smartphone para abrir esta presentación',
+      qrScanHint: 'Apunta la cámara de cualquier teléfono para guardar el contacto',
+      copyLink: 'Copiar enlace',
+      linkCopied: '¡Enlace copiado!',
+      close: 'Cerrar',
+      linksTitle: 'Enlaces & Plataformas',
+      exploreWebsiteTitle: 'Sitio Web Oficial SIMPORA',
+      exploreWebsiteDesc: 'Explora nuestros servicios de software, IA y casos de éxito',
+      aiAssistantTitle: 'Consultor de IA SIMPORA',
+      aiAssistantDesc: 'Diagnostica tu proyecto o consulta técnica con Gemini en vivo',
+      projectsTitle: 'Proyectos & Soluciones',
+      viewProject: 'Abrir proyecto',
+      servicesTitle: 'Nuestros 6 Pilares',
+      servicesSubtitle: 'Ingeniería integral desde IA hasta infraestructura',
+      quickMessageTitle: 'Mensaje Directo',
+      quickMessageSubtitle: 'Escríbeme y te responderé en menos de 24 horas',
+      formName: 'Tu nombre',
+      formEmailOrPhone: 'Correo o WhatsApp',
+      formMessage: '¿En qué te podemos apoyar?',
+      formSend: 'Enviar Mensaje',
+      formSending: 'Enviando...',
+      formSuccess: '¡Mensaje enviado con éxito!',
+      formSuccessDesc: 'Jonathan Dubón revisará tu mensaje y se comunicará contigo hoy mismo.',
+      location: 'Honduras • Atención Global',
+      slaResponse: 'Respuesta < 24h garantizada',
+    },
   },
   en: {
     nav: {
@@ -872,6 +952,46 @@ export const TRANSLATIONS: Record<Language, TranslationSchema> = {
         'Cybersecurity & audit process',
         'Connect with Jonathan Dubón',
       ],
+    },
+    contactPage: {
+      backToHome: 'Go to simpora.dev',
+      verifiedBadge: 'Systems Engineer & Founder',
+      founderRole: 'Founder & Chief Technology Officer',
+      availability: 'Available for Projects',
+      saveContact: 'Save to Contacts',
+      saveContactSuccess: 'Contact saved!',
+      whatsappAction: 'WhatsApp',
+      callAction: 'Call',
+      emailAction: 'Email',
+      copiedEmail: 'Copied!',
+      copyEmail: 'Copy email',
+      shareCard: 'Share / QR',
+      qrModalTitle: 'SIMPORA Digital Business Card',
+      qrModalSubtitle: 'Scan with your smartphone camera to open this presentation',
+      qrScanHint: 'Point any phone camera to save or view contact',
+      copyLink: 'Copy link',
+      linkCopied: 'Link copied!',
+      close: 'Close',
+      linksTitle: 'Links & Platforms',
+      exploreWebsiteTitle: 'Official SIMPORA Website',
+      exploreWebsiteDesc: 'Explore our software engineering, AI pillars, and case studies',
+      aiAssistantTitle: 'SIMPORA AI Consultant',
+      aiAssistantDesc: 'Diagnose your project or technical query with live Gemini AI',
+      projectsTitle: 'Projects & Solutions',
+      viewProject: 'Open project',
+      servicesTitle: 'Our 6 Pillars',
+      servicesSubtitle: 'Full-spectrum engineering from AI to infrastructure',
+      quickMessageTitle: 'Direct Message',
+      quickMessageSubtitle: 'Leave a message and I will reply within 24 hours',
+      formName: 'Your name',
+      formEmailOrPhone: 'Email or WhatsApp',
+      formMessage: 'How can we help your business?',
+      formSend: 'Send Message',
+      formSending: 'Sending...',
+      formSuccess: 'Message sent successfully!',
+      formSuccessDesc: 'Jonathan Dubón will review your message and reply today.',
+      location: 'Honduras • Global Delivery',
+      slaResponse: '< 24h SLA response guaranteed',
     },
   },
 };

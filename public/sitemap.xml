@@ -58,4 +58,13 @@
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
+  <url>
+    <loc>https://simpora.dev/contact</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://simpora.dev/contact" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://simpora.dev/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://simpora.dev/contact" />
+  </url>
 </urlset>

@@ -69,6 +69,15 @@ export const Footer: React.FC = () => {
               <li>
                 <a href="#contacto" className="hover:text-[#97F2CC] transition-colors">{t.nav.contact}</a>
               </li>
+              <li>
+                <a
+                  href="/contact"
+                  className="text-[#97F2CC] hover:underline transition-all inline-flex items-center gap-1 font-mono text-xs pt-1"
+                >
+                  <span>{language === 'en' ? 'Digital Business Card (/contact)' : 'Tarjeta Digital NFC (/contact)'}</span>
+                  <ArrowUpRight className="w-3 h-3" />
+                </a>
+              </li>
             </ul>
           </div>
 

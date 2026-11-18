@@ -104,7 +104,7 @@ export const ClientsSection: React.FC = () => {
       {/* Marquee Carousel */}
       <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
         <div
-          className={`flex w-max animate-marquee space-x-4 sm:space-x-5 py-2 hover:[animation-play-state:paused] ${
+          className={`flex w-max animate-marquee-reverse space-x-4 sm:space-x-5 py-2 hover:[animation-play-state:paused] ${
             isPaused ? '[animation-play-state:paused]' : ''
           }`}
         >

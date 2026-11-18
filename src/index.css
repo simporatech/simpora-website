@@ -214,6 +214,15 @@
   }
 }
 
+@keyframes marquee-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
 @keyframes shimmer {
   0% {
     transform: translateX(-100%);
@@ -227,8 +236,13 @@
   animation: marquee 35s linear infinite;
 }
 
+.animate-marquee-reverse {
+  animation: marquee-reverse 35s linear infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .animate-marquee {
+  .animate-marquee,
+  .animate-marquee-reverse {
     animation-duration: 90s;
   }
 }

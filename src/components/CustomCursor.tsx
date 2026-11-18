@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion, useMotionValue, useSpring } from 'motion/react';
 
 export const CustomCursor: React.FC = () => {
   const [isPointerFine, setIsPointerFine] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const overlayRef = useRef<HTMLDivElement>(null);
 
   // Raw mouse coordinates
   const mouseX = useMotionValue(-100);
@@ -87,10 +88,47 @@ export const CustomCursor: React.FC = () => {
 
   const [ripples, setRipples] = useState<Array<{ id: number; x: number; y: number }>>([]);
 
+  // Keep custom cursor in the top layer above native <dialog> modals
+  useEffect(() => {
+    if (!isPointerFine) return;
+    const el = overlayRef.current as (HTMLDivElement & { showPopover?: () => void; hidePopover?: () => void }) | null;
+    if (!el || typeof el.showPopover !== 'function') return;
+
+    const promoteToTopLayer = () => {
+      try {
+        if (el.matches(':popover-open')) {
+          el.hidePopover?.();
+        }
+        el.showPopover?.();
+      } catch {
+        // Ignore if element is not yet connected or popover is unsupported
+      }
+    };
+
+    promoteToTopLayer();
+
+    const observer = new MutationObserver(() => {
+      if (document.querySelector('dialog[open]')) {
+        promoteToTopLayer();
+      }
+    });
+    observer.observe(document.body, {
+      attributes: true,
+      attributeFilter: ['open'],
+      subtree: true,
+    });
+
+    return () => observer.disconnect();
+  }, [isPointerFine]);
+
   if (!isPointerFine) return null;
 
   return (
-    <>
+    <div
+      ref={overlayRef}
+      {...({ popover: 'manual' } as any)}
+      className="fixed inset-0 w-full h-full max-w-none max-h-none m-0 p-0 border-0 bg-transparent pointer-events-none overflow-visible z-[99999]"
+    >
       {/* 1. Ambient Mouse Hover Glow (High Z-index, illuminates everywhere over all sections) */}
       <motion.div
         style={{
@@ -156,6 +194,6 @@ export const CustomCursor: React.FC = () => {
         transition={{ duration: 0.15 }}
         className="fixed top-0 left-0 pointer-events-none z-[99999] w-2 h-2 rounded-full shadow-[0_0_8px_#97F2CC] will-change-transform"
       />
-    </>
+    </div>
   );
 };

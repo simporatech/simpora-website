@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'motion/react';
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
-import { EpicPreloader } from './components/EpicPreloader';
 import { Navbar } from './components/Navbar';
 import { ScrollCircuitSpine } from './components/ScrollCircuitSpine';
 import { Hero } from './components/Hero';
@@ -27,8 +25,6 @@ interface MainLayoutProps {
 
 function MainLayout({ onNavigateContact }: MainLayoutProps) {
   const [isChatOpen, setIsChatOpen] = useState(false);
-  const [isRevealed, setIsRevealed] = useState(false);
-  const [hasLoaded, setHasLoaded] = useState(false);
   const [contactInitialMessage, setContactInitialMessage] = useState('');
   const [solutionFinderPreset, setSolutionFinderPreset] = useState<string | undefined>(undefined);
   const { language } = useLanguage();
@@ -39,15 +35,6 @@ function MainLayout({ onNavigateContact }: MainLayoutProps) {
       history.scrollRestoration = 'manual';
     }
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' as ScrollBehavior });
-  }, []);
-
-  // Safety fallback in case preloader is bypassed or finishes early
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsRevealed(true);
-      setHasLoaded(true);
-    }, 4000);
-    return () => clearTimeout(timer);
   }, []);
 
   // When user clicks "Diagnosticar necesidad" on a service card
@@ -79,46 +66,20 @@ function MainLayout({ onNavigateContact }: MainLayoutProps) {
       {/* Precision Custom Cursor with Ambient Background Mouse Glow */}
       <CustomCursor />
 
-      {/* Cinematic AI Boot Preloader with Mint Shockwave Explosion */}
-      {!hasLoaded && (
-        <EpicPreloader
-          onRevealStart={() => setIsRevealed(true)}
-          onComplete={() => {
-            setIsRevealed(true);
-            setHasLoaded(true);
-          }}
-        />
-      )}
-
-      {/* Floating minimalist Navbar with coordinated descent */}
-      <Navbar onOpenChat={() => setIsChatOpen(true)} isRevealed={isRevealed} />
+      {/* Floating minimalist Navbar */}
+      <Navbar onOpenChat={() => setIsChatOpen(true)} isRevealed={true} />
 
       {/* 1. Constelación Neuronal Holográfica Global (Fondo interactivo de partículas en toda la app) */}
       <NeuralConstellation />
       <ScrollCircuitSpine />
       <CyberGridWarp />
 
-      {/* Entrada 100% Fluida, Sedosa y Elegante de la Landing Page */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.98, y: 14 }}
-        animate={
-          isRevealed
-            ? { opacity: 1, scale: 1, y: 0 }
-            : { opacity: 0, scale: 0.98, y: 14 }
-        }
-        transition={{
-          duration: 0.85,
-          ease: [0.16, 1, 0.3, 1],
-        }}
-        style={{
-          willChange: 'transform, opacity',
-        }}
-      >
+      <div>
         <main className="relative z-10 pt-20">
           {/* 1. Hero Section (ultra rápido, con chip NPU refinado y glow menta) */}
           <Hero
             onOpenConsultant={() => setIsChatOpen(true)}
-            isRevealed={isRevealed}
+            isRevealed={true}
           />
 
           {/* 2. Sobre SIMPORA (Misión, Fundador & Rigor Técnico) */}
@@ -151,7 +112,7 @@ function MainLayout({ onNavigateContact }: MainLayoutProps) {
 
         {/* 8. Footer */}
         <Footer />
-      </motion.div>
+      </div>
 
       {/* 9. Floating Launcher Button & Multi-turn Gemini Chat Modal */}
       <FloatingAiButton isOpen={isChatOpen} onClick={() => setIsChatOpen(true)} />

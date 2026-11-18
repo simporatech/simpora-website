@@ -124,8 +124,8 @@ SIMPORA/
 
 - **Fundador & Ingeniero Líder:** Jonathan A. Dubón
 - **Sitio Web Oficial:** [https://simpora.dev](https://simpora.dev)
-- **Correo Corporativo:** [info@simpora.dev](mailto:info@simpora.dev)
-- **WhatsApp Directo:** [+502 3023-0303](https://wa.me/50230230303)
+- **Correo Corporativo:** [jdubon@simpora.dev](mailto:jdubon@simpora.dev)
+- **WhatsApp Directo:** [+504 9870-0953](https://wa.me/50498700953)
 
 ---
 

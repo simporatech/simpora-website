@@ -227,4 +227,22 @@
   animation: marquee 35s linear infinite;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation-duration: 90s;
+  }
+}
+
+/* Native <dialog> modal scroll containment and backdrop */
+dialog:modal {
+  overscroll-behavior: contain;
+}
+
+dialog::backdrop {
+  overflow: hidden;
+  overscroll-behavior: contain;
+  background-color: rgba(18, 18, 18, 0.55);
+  backdrop-filter: blur(4px);
+}
+
 

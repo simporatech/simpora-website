@@ -250,6 +250,25 @@ export const CLIENTS_DATA: ClientItem[] = [
     },
     tags: ['Ingeniería Web', 'Optimización de Reservas', 'Diseño Moderno'],
   },
+  {
+    id: 'tonys-grill',
+    name: "Tony's Grill",
+    logo: '/assets/clients/tonys-grill.png',
+    website: 'https://tonysgrillgt.com',
+    category: {
+      es: 'Restaurante Familiar & Parrilla (Chiquimula)',
+      en: 'Family Grill & Steakhouse (Chiquimula)',
+    },
+    whatWeDid: {
+      es: 'Página Web & Automatización con IA en Redes Sociales',
+      en: 'Website & AI Social Media Automation',
+    },
+    description: {
+      es: 'Restaurante familiar emblemático en Chiquimula, Guatemala, reconocido por sus carnes a la parrilla, costillas de un metro, mariscos, pastas y espacios para eventos. SIMPORA desarrolló su sitio web oficial y automatizó la atención e interacción en sus redes sociales con Inteligencia Artificial.',
+      en: 'Iconic family restaurant in Chiquimula, Guatemala, renowned for its grilled steaks, meter-long ribs, seafood, pastas, and event spaces. SIMPORA built its official website and automated its social media customer engagement using Artificial Intelligence.',
+    },
+    tags: ['Desarrollo Web', 'Automatización IA', 'Redes Sociales'],
+  },
 ];
 
 export const PROJECTS_DATA: ProjectItem[] = [

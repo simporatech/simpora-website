@@ -63,9 +63,6 @@ function MainLayout({ onNavigateContact }: MainLayoutProps) {
 
   return (
     <div className="min-h-screen bg-white text-[#121212] selection:bg-[#97F2CC] selection:text-[#121212] relative overflow-x-clip">
-      {/* Precision Custom Cursor with Ambient Background Mouse Glow */}
-      <CustomCursor />
-
       {/* Floating minimalist Navbar */}
       <Navbar onOpenChat={() => setIsChatOpen(true)} isRevealed={true} />
 
@@ -153,6 +150,8 @@ export default function App() {
 
   return (
     <LanguageProvider>
+      {/* Precision Custom Cursor with Ambient Background Mouse Glow across all routes */}
+      <CustomCursor />
       {isContactPage ? (
         <ContactPage onNavigateHome={() => navigateTo('/')} />
       ) : (
